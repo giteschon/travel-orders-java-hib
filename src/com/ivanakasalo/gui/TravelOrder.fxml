@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ivanakasalo.gui.TravelOrderController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Open">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openInvoiceOnAction" text="Invoices" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Report">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#saveToPdfOnAction" text="Save to PDF" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Travel Orders">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <TableView fx:id="tblTravelOrders" onMouseClicked="#tblToRowClicked" prefHeight="546.0" prefWidth="337.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="colToNo" prefWidth="75.0" text="No" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </left>
+                     <right>
+                        <VBox BorderPane.alignment="CENTER">
+                           <children>
+                              <TextArea fx:id="txtFuelInvoice" prefHeight="200.0" prefWidth="200.0" />
+                              <TextField fx:id="txtTravelorder" editable="false" promptText="Travel Order">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button fx:id="btnAddFuel" disable="true" mnemonicParsing="false" onAction="#addInvoiceToTOOnAction" text="Add invoice" />
+                           </children>
+                        </VBox>
+                     </right>
+                  </BorderPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
